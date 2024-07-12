@@ -1,0 +1,380 @@
+{glossary: [
+  { "word": "Amendment",
+    "meaning": "The process of deriving a {{realizable}} choreography from a non-realizable one.
+                If the system/language is designed with the assumption that many authored programs will require amendment,
+                it may be equally sensible to say that the system allows some communication to be implicit.",
+    "related": [
+    ]
+  },
+  { "word": "Auto-Enclaving",
+    "meaning": "A function or conditional is automatically enclaves its body/bodies if the system interprets the body
+                as having a reduced {{census}} based on the {{ownership}} of the arguments, guard, or function.",
+    "related": [
+    ]
+  },
+  { "word": "Bisimulation",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Census",
+    "meaning": "In many choreographic systems the space of _possible_ participants in a choreography is knowable at compile-time,
+                either by inspection of the program or from explicit annotations.
+                {{citation | MultiChor}} calls such a set or list a census
+                (by analogy to the census of a nations population).",
+    "related": [
+      { "kind": "synonym",
+        "word": "Role Context",
+        "citation": "klor2024"
+      },
+      { "kind": "contrast",
+        "word": "Auxiliary Locations",
+        "distinction": "In the context of a choreographic _function_, it's practical to automatically include
+                        the owners (and/or participants) of the argument and return types in the census;
+                        explicit annotation on the function then only needs to specify the additional \"auxiliary\" participants in the function."
+      },
+      { "kind": "see-also",
+        "word": "Enclave"
+      }
+    ]
+  },
+  { "word": "Census Polymorphism",
+    "meaning": "{{Location set polymorphism}} as applied to the {{census}} of an expression;
+                the ability of a choreographic expression to be polymorphic over its number of participants.",
+    "related": [
+      { "kind": "see-also",
+        "word": "Location Polymorphism"
+      }
+    ]
+  },
+  { "word": "Choreography",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Cluster",
+    "meaning": "TODO
+                I can't remember why I thought this needed to be here...",
+    "related": [
+    ]
+  },
+  { "word": "Comm",
+    "meaning": "The communication operator, `comm` or `com`.
+                Although one often casually says \"`A` sends `B` some data\",
+                it's conventional to reserve the operator name `send` for the process-level act of transmitting data
+                and call the choreographic operator `comm`.",
+    "related": [
+      { "kind": "contrast",
+        "word": "Broadcast",
+        "distinction": "An operation that sends the value to _everyone_.
+                        If the system has {{census}}es, \"everyone\" means everyone in the census.
+                        Whether the resultant value will be a {{multiply located value}} or a {{naked value}} is system-dependent.
+                        To avoid confusion, avoid using the word \"broadcast\" to refer to {{multicast}} operations."
+      },
+      { "kind": "contrast",
+        "word": "Multicast",
+        "distinction": "Specifies a communication operator that (may) take multiple recipients.
+                        Usually seen in systems with {{multiply located values}}.
+                        Often still called `comm`."
+      },
+      { "kind": "contrast",
+        "word": "Receive",
+        "distinction": "Counterpart to {{Send}}.
+                        For the recipients, a `comm` projects as `recv`."
+      },
+      { "kind": "contrast",
+        "word": "Send",
+        "distinction": "In the context of choreographies, the operation-name `send` should be reserved
+                        for the process-level action performed by the _send_er;
+                        For the participant who actually sends the data, `comm` projects as `send`."
+      },
+      { "kind": "contrast",
+        "word": "Share",
+        "distinction": "In some systems,
+                        rather than a function-like `comm` operator that yields a new {{located value}},
+                        there's an operation `share` (or `copy` {{citation | klor2024}})
+                        that adds the recipient(s) as owners of its argument."
+      }
+    ]
+  },
+  { "word": "Communication Safety",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Congruent Computation",
+    "meaning": "TODO
+                These should possibly be swapped, the only place the word \"congruent\" is being used is {{citation | multichor2024}},
+                where it's well suited as an operator name, but I've no argument to favor the word outside that context.",
+    "related": [
+      { "kind": "synonym",
+        "word": "Active Replication",
+        "citation": "? Mae Milano"
+    ]
+  },
+  { "word": "Deadlock Freedom",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Dynamic Placement",
+    "meaning": "TODO",
+    "related": [
+      { "kind": "contrast",
+        "word": "Location Polymorphism",
+        "distinction": "TODO"
+      }
+    ]
+  },
+  { "word": "Enclave",
+    "meaning": "TODO",
+    "related": [
+      { "kind": "see-also",
+        "word": "Census"
+      }
+    ]
+  },
+  { "word": "Endpoint Projection",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Fully Out-of-Order Execution",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Knowledge of Choice",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Label (selection)",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Located Value",
+    "meaning": "A value known to (or owned by) a participant in a choreography.
+                Typically, this ownership information is tracked by a type system.
+                Often the term-level data will be annotated with it's owner.
+                During {{endpoint projection}} to some party `P`,
+                located values owned by `P` will project as themselves (usually with the ownership annotations removed),
+                and located values _not_ owned by `P` will be skipped (often by projecting them as a special symbol `⊥`)."
+    "related": [
+      { "kind": "see-also",
+        "word": "Multiply Located Value"
+      },
+      { "kind": "see-also",
+        "word": "Owner (of a value)"
+      },
+      { "kind": "see-also",
+        "word": "Naked Value"
+      }
+    ]
+  },
+  { "word": "Location Polymorphism",
+    "meaning": "A choreographic expression is location-polymorphic if is defined in terms of one-or-more unspecified parties;
+                exactly who fulfils those roles may change from one use of the expression to another.
+                Like other kinds of polymorphism, location polymorphism could be static or dynamic.",
+    "related": [
+      { "kind": "synonym",
+        "word": "Process Polymorphism",
+        "citation": "graversen2023alice"
+      },
+      { "kind": "contrast",
+        "word": "Location Set Polymorphism",
+        "distinction": "Choreographic languages that use sets or lists of parties as part of their syntax may also support location polymorphism;
+                        \"location _set_ polymorphism\" specifically refers to polymorphism over the identities in the set
+                        and the _size_ of the set."
+      },
+      { "kind": "see-also",
+        "word": "Census Polymorphism"
+      }
+    ]
+  },
+  { "word": "Merge",
+    "meaning": "In a select-&-merge language or system, the process during endpoint projection of
+                extracting from parallel control-flow branches the (homogeneous) behavior of a party
+                that doesn't have {{knowledge of choice}} for the relevant conditional.",
+    "related": [
+      { "kind": "see-also",
+        "word": "Select"
+      }
+    ]
+  },
+  { "word": "Multiparty Language",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Multiply Located Value",
+    "acronym": "MLV"
+    "meaning": "A value known to (or owned by) some number of participants in a choreography.
+                Typically, this ownership information is tracked by a type system.
+                During {{endpoint projection}} to some party `P`,
+                values owned by `P` (_i.e._ values for which `P` is a member of the ownership list) will project as themselves,
+                and located values _not_ owned by `P` will be skipped (often by projecting them as a special symbol `⊥`)."
+    "related": [
+      { "kind": "synonym",
+        "word": "Agreement Type",
+        "citation": "klor2024"
+      },
+      { "kind": "synonym",
+        "word": "Common Knowledge",
+        "citation": "kami2024"
+      },
+      { "kind": "contrast",
+        "word": "Conflict-free Replicated Datatype",
+        "distinction": "CRDTs are mutable software structures actively maintained by participants in such a way
+                        that any conflicts that arise in the contained data get resolved \"automatically\".
+                        In contrast, an MLV is a passive abstraction;
+                        that the runtime representations are the same across participants is (presumably) an invariant
+                        provided by the choreography system in question.",
+        "link": "https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type"
+      },
+      { "kind": "contrast",
+        "word": "Distributed Choice Type",
+        "distinction": "A distributed choice type encodes a boolean or other enum-value
+                        in a singly-located-values system in such a way that multiple participants can safely use it as a branch guard
+                        without further communication.
+                        (Not all systems are capable of encoding distributed choice types.)
+                        In contrast to a MLV, a distributed choice type will project to different endpoints as different values;
+                        any computation that needs to happen to the value will need to decode the distributed choice type in some way.
+                        Whether or not this distinction has any practical significance will depend on the details of the systems being compared.",
+        "citation": "chor-lambda-2-2023"
+      },
+      { "kind": "see-also",
+        "word": "Located Value"
+      }
+    ]
+  },
+  { "word": "Multitier Language",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Naked Value",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Network",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Out-of-Order Execution",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Owner (of a value)",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Participant",
+    "meaning": "Choreographic programming is a system for writing concurrent programs or protocols in general;
+                there is not one-size-fits-all term for the relevant unit of concurrency.
+                \"Participant\" is perhaps the most general word to refer to the units who concurrently \"participate\" in a choreography,
+                but other words may be preferred or conventional in various contexts.
+                For example, (multiply-) {{located values}} may still be called such in contexts where
+                the \"locations\" are better described as \"processes\",
+                and the noun \"endpoint\" is rarely used outside the context of {{endpoint projection}}.
+                Usually, all of these words are synonymous, but the choice of word may emphasise different aspects of the system or context.",
+    "related": [
+      { "kind": "contrast",
+        "word": "Endpoint",
+        "distinction": "Emphasizes the modularity of the programs that result from {{EPP}};
+                        might be an appropriate word when focusing on how the projected executables can behave or be used
+                        outside of their original choreographic context."
+      },
+      { "kind": "contrast",
+        "word": "Location",
+        "distinction": "Emphasizes literal or metaphorical distance between participants.
+                        _e.g._ in a context where locations have access to mutable references,
+                        one would assume that two distinct locations are actually reading from independent
+                        cells even when they look up the same reference-address."
+      },
+      { "kind": "contrast",
+        "word": "Role",
+        "distinction": "Emphasizes a distinction between participant names in a choreographic expression
+                        and the actual entities that will run the projected executables.
+                        _e.g._ in a {{location polymorphic}} system one could write a sub-choreography with two roles,
+                        but then instantiate it with a single participant playing both of those roles."
+      },
+      { "kind": "contrast",
+        "word": "Process",
+        "distinction": "Emphasizes the fact that the participants in a choreography may in practice all run on the same machine
+                        (or could even be threads within a single OS process).
+                        In systems where participants can \"spawn children\" it's normal to call them processes.
+                        It is also common to call the actual _program_ that results from {{EPP}} a \"process\"."
+      },
+      { "kind": "contrast",
+        "word": "Party",
+        "distinction": "Emphasizes that the participants are often (computers running at the behest of) distinct humans."
+      },
+      { "kind": "contrast",
+        "word": "Node",
+        "distinction": "Emphasizes the graph of communication channels that exist between the participants."
+      },
+      { "kind": "see-also",
+        "word": "Network"
+      },
+      { "kind": "see-also",
+        "word": "Census"
+      }
+    ]
+  },
+  { "word": "Process Projection",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Realize",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Scatter/Gather",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Select",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Starvation Freedom",
+    "meaning": "TODO",
+    "related": [
+    ]
+  },
+  { "word": "Synchronous Communication",
+    "meaning": "TODO",
+    "related": [
+      { "kind": "contrast",
+        "word": "Asynchronous Communication",
+        "distinction": "TODO"
+        ]
+      }
+    ]
+  },
+  { "word": "Transport",
+    "meaning": "(-Layer, -Protocol)
+                The system for actually moving data from one {{Location}} to another.
+                Typically representations of choreographies are completely abstract about their transport layer.",
+    "related": [
+      { "kind": "synonym",
+        "word": "Backend",
+        "citation": "haschor2023"
+      },
+      { "kind": "synonym",
+        "word": "Communication Medium",
+        "citation": "?"
+      }
+    ]
+  }
+]}
